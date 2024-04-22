@@ -3,12 +3,8 @@
 
 // pick a panicking behavior
 use panic_halt as _; // you can put a breakpoint on `rust_begin_unwind` to catch panics
-// use panic_abort as _; // requires nightly
-// use panic_itm as _; // logs messages over ITM; requires ITM support
-// use panic_semihosting as _; // logs messages to the host stderr; requires a debugger
 
 use cortex_m_rt::entry;
-
 
 #[inline(never)]
 fn hidenext() -> i32 {
@@ -23,18 +19,72 @@ fn next() -> i32 {
 
 #[entry]
 fn main() -> ! {
-    let mut data1 = [next() as u8, next() as u8, next() as u8, next() as u8, next() as u8, next() as u8, next() as u8, next() as u8];
-    let data2 = [next() as u8, next() as u8, next() as u8, next() as u8, next() as u8, next() as u8, next() as u8, next() as u8];
+    let mut data1 = [
+        next() as u8,
+        next() as u8,
+        next() as u8,
+        next() as u8,
+        next() as u8,
+        next() as u8,
+        next() as u8,
+        next() as u8,
+    ];
+    let data2 = [
+        next() as u8,
+        next() as u8,
+        next() as u8,
+        next() as u8,
+        next() as u8,
+        next() as u8,
+        next() as u8,
+        next() as u8,
+    ];
     int_maths(&mut data1, &data2);
     let sum: u8 = data1.iter().sum();
 
-    let mut fdata1 = [next() as f32, next() as f32, next() as f32, next() as f32, next() as f32, next() as f32, next() as f32, next() as f32];
-    let fdata2 = [next() as f32, next() as f32, next() as f32, next() as f32, next() as f32, next() as f32, next() as f32, next() as f32];
+    let mut fdata1 = [
+        next() as f32,
+        next() as f32,
+        next() as f32,
+        next() as f32,
+        next() as f32,
+        next() as f32,
+        next() as f32,
+        next() as f32,
+    ];
+    let fdata2 = [
+        next() as f32,
+        next() as f32,
+        next() as f32,
+        next() as f32,
+        next() as f32,
+        next() as f32,
+        next() as f32,
+        next() as f32,
+    ];
     f32_maths(&mut fdata1, &fdata2);
     let fsum: f32 = fdata1.iter().sum();
 
-    let mut f64data1 = [next() as f64, next() as f64, next() as f64, next() as f64, next() as f64, next() as f64, next() as f64, next() as f64];
-    let f64data2 = [next() as f64, next() as f64, next() as f64, next() as f64, next() as f64, next() as f64, next() as f64, next() as f64];
+    let mut f64data1 = [
+        next() as f64,
+        next() as f64,
+        next() as f64,
+        next() as f64,
+        next() as f64,
+        next() as f64,
+        next() as f64,
+        next() as f64,
+    ];
+    let f64data2 = [
+        next() as f64,
+        next() as f64,
+        next() as f64,
+        next() as f64,
+        next() as f64,
+        next() as f64,
+        next() as f64,
+        next() as f64,
+    ];
     f64_maths(&mut f64data1, &f64data2);
     let f64sum: f64 = f64data1.iter().sum();
 
