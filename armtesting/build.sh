@@ -23,7 +23,7 @@ while read -r arg; do
         echo "Building ${toolchain} ${target} ${args}..."
         RUSTFLAGS="$args" cargo +${toolchain} build --release --target $target || exit 1
         cp ./target/$target/release/armtesting $i.elf
-        arm-none-eabi-objdump $i.elf --no-addresses -dCt  | sed "s/$i\.elf/filename.elf/" > $i.log 
+        arm-none-eabi-objdump $i.elf --no-addresses --no-show-raw-insn -dCt  | sed "s/$i\.elf/filename.elf/" > $i.log 
     fi
 done < targets.txt
 
