@@ -40,6 +40,7 @@ fn main() -> ! {
         next() as u8,
     ];
     int_maths(&mut data1, &data2);
+    dsp_maths(&mut data1, &data2);
     let sum: u8 = data1.iter().sum();
 
     let mut fdata1 = [
@@ -100,6 +101,13 @@ fn main() -> ! {
 pub fn int_maths(data1: &mut [u8; 8], data2: &[u8; 8]) {
     for i in 0..8 {
         data1[i] += data2[i];
+    }
+}
+
+#[inline(never)]
+pub fn dsp_maths(data1: &mut [u8; 8], data2: &[u8; 8]) {
+    for i in 0..8 {
+        data1[i] = data1[i].saturating_add(data2[i]);
     }
 }
 

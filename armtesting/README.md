@@ -16,49 +16,72 @@ There are no relevant feature flags, and the FPU is not available.
 
 This is suitable for Arm Cortex-M3 processor. It supports atomic compare-and-swap.
 
-There are no relevant target CPU options.
+### Arm Cortex-M3
+
+The target CPU is `cortex-m3`.
 
 There are no relevant feature flags, and the FPU is not available.
+
+### `thumbv7m-none-eabi` Options
+
+The target CPU options may apply scheduling optimisations but there are no additional features in `cortex-m3` above the architecture baseline.
+
+| CPU       | Target CPU  | Target Features |
+| --------- | ----------- | --------------- |
+| Cortex-M3 | `cortex-m3` | None            |
 
 ## `thumbv7em-none-eabi`
 
 This is suitable for Arm Cortex-M4 and Arm Cortex-M7 processors.
 
-- The Arm Cortex-M4 can come with an optional single precision FPU.
-  - The target CPU is `cortex-m4`
-  - The appropriate FPU feature is `vfp4d16sp`.
-    - Vector Floating Point Unit Version 4
-    - Only space for 16 `double`/`f64` values (or 32 `float`/`f32` values)
-    - Single Precision (`sp`)
-- The Arm Cortex-M7 can come with no FPU, a single precision FPU, or a double precision FPU.
-  - The target CPU is `cortex-m7`
-  - The appropriate FPU feature is either `vfp4d16sp` or `vfp4d16`.
-    - Vector Floating Point Unit Version 4
-    - Only space for 16 `double`/`f64` values (or 32 `float`/`f32` values)
-    - Double Precision, or Single Precision (`sp`)
+### Arm Cortex-M4
+
+The target CPU is `cortex-m4`.
+
+- Has DSP extensions - `dsp`
+- Optional single precision FPU - `vfp4d16sp`
+  - Vector Floating Point Unit Version 4
+  - Only space for 16 `double`/`f64` values (or 32 `float`/`f32` values)
+  - Single Precision (`sp`)
+
+### Arm Cortex-M7
+
+The target CPU is `cortex-m7`.
+
+- Has DSP extensions - `dsp`
+- can come with no FPU, a single precision FPU, or a double precision FPU - either `vfp4d16sp` or `vfp4d16`
+  - Vector Floating Point Unit Version 4
+  - Only space for 16 `double`/`f64` values (or 32 `float`/`f32` values)
+  - Double Precision, or Single Precision (`sp`)
   - The `vfp4d16` feature is like the `vfp4d16sp` but with `+fp64` enabled
+
+Technically the Cortex-M7 has an _FPv5_ FPU, but LLVM doesn't seem to know about it - it is fully compatible with an _VFP4_ FPU though.
+
+### `thumbv7em-none-eabi` Options
 
 The target CPU options may apply scheduling optimisations and will enable additional features, including the most advanced possible FPU support for that CPU.
 
-| CPU               | Target CPU  | Target Feature                         |
-| ----------------- | ----------- | -------------------------------------- |
-| Cortex-M4, no FPU | `cortex-m4` | `+soft-float`                          |
-| Cortex-M4, FPU    | `cortex-m4` | None - FPU is enabled automatically    |
-| Cortex-M7, no FPU | `cortex-m7` | `+soft-float`                          |
-| Cortex-M7, SP FPU | `cortex-m7` | `-fp64` to restrict to SP FPU          |
-| Cortex-M7, DP FPU | `cortex-m7` | None - DP FPU is enabled automatically |
+| CPU             | Target CPU  | Target Features               |
+| --------------- | ----------- | ----------------------------- |
+| Cortex-M4       | `cortex-m4` | `+soft-float`                 |
+| Cortex-M4F      | `cortex-m4` | None                          |
+| Cortex-M7       | `cortex-m7` | `+soft-float`                 |
+| Cortex-M7F (SP) | `cortex-m7` | `-fp64` to restrict to SP FPU |
+| Cortex-M7F (DP) | `cortex-m7` | None                          |
 
 ## `thumbv7em-none-eabihf`
 
 This is suitable for Arm Cortex-M4 and Arm Cortex-M7 processors with FPUs. Floating point function arguments are passed in FPU registers, so the FPU is mandatory.
 
+See [`thumbv7em-none-eabi`](#thumbv7em-none-eabi) for more details.
+
 The target CPU options may apply scheduling optimisations and will enable additional features, including the most advanced possible FPU support for that CPU.
 
-| CPU               | Target CPU  | Target Feature                         |
-| ----------------- | ----------- | -------------------------------------- |
-| Cortex-M4, FPU    | `cortex-m4` | None - FPU is enabled automatically    |
-| Cortex-M7, SP FPU | `cortex-m7` | `-fp64` to restrict to SP FPU          |
-| Cortex-M7, DP FPU | `cortex-m7` | None - DP FPU is enabled automatically |
+| CPU             | Target CPU  | Target Features               |
+| --------------- | ----------- | ----------------------------- |
+| Cortex-M4F      | `cortex-m4` | None                          |
+| Cortex-M7F (SP) | `cortex-m7` | `-fp64` to restrict to SP FPU |
+| Cortex-M7F (DP) | `cortex-m7` | None                          |
 
 ## `thumbv8m.base-none-eabi`
 
@@ -72,57 +95,76 @@ There are no relevant feature flags, and the FPU is not available.
 
 This is suitable for Arm Cortex-M33, Arm Cortex-M55 and Arm Cortex-M85 processors.
 
-- The Arm Cortex-M33 can come with an optional single precision FPU, and optional DSP extensions.
-  - The target CPU is `cortex-m33`
-  - The appropriate FPU feature for the Cortex-M33 is `fp-armv8d16sp`.
-    - Floating Point for ARMv8
-    - Only space for 16 `double`/`f64` values (or 32 `float`/`f32` values)
-    - Single Precision (`sp`)
-- The Arm Cortex-M55 can come with an optional double-precision FPU that also supports FP16, and with an optional M-Profile Vector Engine that can support either integer-only vectors, or integer/float vectors.
-  - The target CPU is `cortex-m55`
-  - The appropriate FPU feature for the Cortex-M55 is `fp-armv8d16`.
-    - Floating Point for ARMv8
-    - Only space for 16 `double`/`f64` values (or 32 `float`/`f32` values)
-  - The appropriate feature for the MVE is either `mve` (integer) or `mve.fp` (float).
-- The Arm Cortex-M85 can come with an optional double-precision FPU that also supports FP16, and with an optional M-Profile Vector Engine that can support either integer-only vectors, or integer/float vectors.
-  - The target CPU is `cortex-m85`
-  - The appropriate FPU feature for the Cortex-M85 is `fp-armv8d16`.
-    - Floating Point for ARMv8
-    - Only space for 16 `double`/`f64` values (or 32 `float`/`f32` values)
-  - The appropriate feature for the MVE is either `mve` (integer) or `mve.fp` (float).
+### Arm Cortex-M33
+
+The target CPU is `cortex-m33`.
+
+- Optional DSP extensions - `dsp`
+- Optional single precision FP - `fp-armv8d16sp`
+  - Floating Point for ARMv8
+  - Only space for 16 `double`/`f64` values (or 32 `float`/`f32` values)
+  - Single Precision (`sp`)
+
+### Arm Cortex-M55
+
+The target CPU is `cortex-m55`.
+
+- Has DSP extensions - `dsp`
+- Optional double-precision FPU that also supports FP16 - `fp-armv8d16`
+  - Floating Point for ARMv8
+  - Only space for 16 `double`/`f64` values (or 32 `float`/`f32` values)
+- Optional M-Profile Vector Engine that can support either integer-only vectors, or integer/float vectors
+  - The appropriate feature for the MVE is either `mve` (integer) or `mve.fp` (float)
+  - Also known as _Helium Technology_
+
+### Arm Cortex-M85
+
+The target CPU is `cortex-m85`.
+
+- Has DSP extensions - `dsp`
+- Optional double-precision FPU that also supports FP16 - `fp-armv8d16`
+  - Floating Point for ARMv8
+  - Only space for 16 `double`/`f64` values (or 32 `float`/`f32` values)
+- Optional M-Profile Vector Engine that can support either integer-only vectors, or integer/float vectors
+  - The appropriate feature for the MVE is either `mve` (integer) or `mve.fp` (float)
+  - Also known as _Helium Technology_
+
+### `thumbv8m.main-none-eabi` Options
 
 The target CPU options may apply scheduling optimisations and will enable additional features, including the most advanced possible FPU support for that CPU.
 
-| CPU                                 | Target CPU   | Target Feature                                                                 |
-| ----------------------------------- | ------------ | ------------------------------------------------------------------------------ |
-| Cortex-M33                          | `cortex-m33` | `+soft-float`                                                                  |
-| Cortex-M33 with DSP                 | `cortex-m33` | `+soft-float`                                                                  |
-| Cortex-M33 with SP FPU              | `cortex-m33` | None - SP FPU is enabled by default. Unsure if LLVM can emit DSP instructions. |
-| Cortex-M33 with DSP and SP FPU      | `cortex-m33` | None - SP FPU is enabled by default. Unsure if LLVM can emit DSP instructions. |
-| Cortex-M55                          | `cortex-m55` | `-mve,-mve.fp,+soft-float` - disable FP and MVE                                |
-| Cortex-M55 with Integer MVE         | `cortex-m55` | `-mve.fp,+soft-float` - disable FP                                             |
-| Cortex-M55 with FPU                 | `cortex-m55` | `-mve` - disable all MVE                                                       |
-| Cortex-M55 with FPU and Integer MVE | `cortex-m55` | `-mve.fp` - disable FP MVE                                                     |
-| Cortex-M55 with FPU and Float MVE   | `cortex-m55` | None - DP and FP MVE is enabled by default                                     |
-| Cortex-M85                          | `cortex-m85` | `-mve,-mve.fp,+soft-float` - disable FP and MVE                                |
-| Cortex-M85 with Integer MVE         | `cortex-m85` | `-mve.fp,+soft-float` - disable FP                                             |
-| Cortex-M85 with FPU                 | `cortex-m85` | `-mve` - disable all MVE                                                       |
-| Cortex-M85 with FPU and Integer MVE | `cortex-m85` | `-mve.fp` - disable FP MVE                                                     |
-| Cortex-M85 with FPU and Float MVE   | `cortex-m85` | None - DP and FP MVE is enabled by default                                     |
+| CPU                          | Target CPU   | Target Features            |
+| ---------------------------- | ------------ | -------------------------- |
+| Cortex-M33                   | `cortex-m33` | `+soft-float,-dsp`         |
+| Cortex-M33 with DSP          | `cortex-m33` | `+soft-float`              |
+| Cortex-M33F                  | `cortex-m33` | `-dsp`                     |
+| Cortex-M33F with DSP         | `cortex-m33` | None                       |
+| Cortex-M55                   | `cortex-m55` | `-mve,-mve.fp,+soft-float` |
+| Cortex-M55 with Integer MVE  | `cortex-m55` | `-mve.fp,+soft-float`      |
+| Cortex-M55F                  | `cortex-m55` | `-mve`                     |
+| Cortex-M55F with Integer MVE | `cortex-m55` | `-mve.fp`                  |
+| Cortex-M55F with Float MVE   | `cortex-m55` | None                       |
+| Cortex-M85                   | `cortex-m85` | `-mve,-mve.fp,+soft-float` |
+| Cortex-M85 with Integer MVE  | `cortex-m85` | `-mve.fp,+soft-float`      |
+| Cortex-M85F                  | `cortex-m85` | `-mve`                     |
+| Cortex-M85F with Integer MVE | `cortex-m85` | `-mve.fp`                  |
+| Cortex-M85F with Float MVE   | `cortex-m85` | None                       |
 
 ## `thumbv8m.main-none-eabihf`
 
 This is suitable for Arm Cortex-M33, Arm Cortex-M55 and Arm Cortex-M85 processors with FPUs. Floating point function arguments are passed in FPU registers, so the FPU is mandatory.
 
+See [`thumbv8m.main-none-eabi`](#thumbv8mmain-none-eabi) for more details.
+
 The target CPU options may apply scheduling optimisations and will enable additional features, including the most advanced possible FPU support for that CPU.
 
-| CPU                                 | Target CPU   | Target Feature                                                                 |
-| ----------------------------------- | ------------ | ------------------------------------------------------------------------------ |
-| Cortex-M33 with SP FPU              | `cortex-m33` | None - SP FPU is enabled by default. Unsure if LLVM can emit DSP instructions. |
-| Cortex-M33 with DSP and SP FPU      | `cortex-m33` | None - SP FPU is enabled by default. Unsure if LLVM can emit DSP instructions. |
-| Cortex-M55 with FPU                 | `cortex-m55` | `-mve` - disable all MVE                                                       |
-| Cortex-M55 with FPU and Integer MVE | `cortex-m55` | `-mve.fp` - disable FP MVE                                                     |
-| Cortex-M55 with FPU and Float MVE   | `cortex-m55` | None - DP and FP MVE is enabled by default                                     |
-| Cortex-M85 with FPU                 | `cortex-m85` | `-mve` - disable all MVE                                                       |
-| Cortex-M85 with FPU and Integer MVE | `cortex-m85` | `-mve.fp` - disable FP MVE                                                     |
-| Cortex-M85 with FPU and Float MVE   | `cortex-m85` | None - DP and FP MVE is enabled by default                                     |
+| CPU                     | Target CPU   | Target Features |
+| ----------------------- | ------------ | --------------- |
+| Cortex-M33F             | `cortex-m33` | `-dsp`          |
+| Cortex-M33F with DSP    | `cortex-m33` | None            |
+| Cortex-M55F             | `cortex-m55` | `-mve`          |
+| Cortex-M55F Integer MVE | `cortex-m55` | `-mve.fp`       |
+| Cortex-M55F Float MVE   | `cortex-m55` | None            |
+| Cortex-M85F             | `cortex-m85` | `-mve`          |
+| Cortex-M85F Integer MVE | `cortex-m85` | `-mve.fp`       |
+| Cortex-M85F Float MVE   | `cortex-m85` | None            |
