@@ -38,13 +38,13 @@ This is suitable for Arm Cortex-M4 and Arm Cortex-M7 processors.
     - Double Precision, or Single Precision (`sp`)
   - The `vfp4d16` feature is like the `vfp4d16sp` but with `+fp64` enabled
 
-The target CPU options may apply scheduling optimisations and will enable additional features, including the most advanced possible FPU support for that CPU. Currently it appears to be impossible to disable FPU support when a target CPU option has enabled it, so if you don't have an FPU you cannot use a target CPU setting.
+The target CPU options may apply scheduling optimisations and will enable additional features, including the most advanced possible FPU support for that CPU.
 
 | CPU               | Target CPU  | Target Feature                         |
 | ----------------- | ----------- | -------------------------------------- |
-| Cortex-M4, no FPU | None        | None                                   |
+| Cortex-M4, no FPU | `cortex-m4` | `+soft-float`                          |
 | Cortex-M4, FPU    | `cortex-m4` | None - FPU is enabled automatically    |
-| Cortex-M7, no FPU | None        | None                                   |
+| Cortex-M7, no FPU | `cortex-m7` | `+soft-float`                          |
 | Cortex-M7, SP FPU | `cortex-m7` | `-fp64` to restrict to SP FPU          |
 | Cortex-M7, DP FPU | `cortex-m7` | None - DP FPU is enabled automatically |
 
@@ -80,32 +80,32 @@ This is suitable for Arm Cortex-M33, Arm Cortex-M55 and Arm Cortex-M85 processor
     - Single Precision (`sp`)
 - The Arm Cortex-M55 can come with an optional double-precision FPU that also supports FP16, and with an optional M-Profile Vector Engine that can support either integer-only vectors, or integer/float vectors.
   - The target CPU is `cortex-m55`
-  - The appropriate FPU feature for the Cortex-M55 is either `fp-armv8d16`.
+  - The appropriate FPU feature for the Cortex-M55 is `fp-armv8d16`.
     - Floating Point for ARMv8
     - Only space for 16 `double`/`f64` values (or 32 `float`/`f32` values)
   - The appropriate feature for the MVE is either `mve` (integer) or `mve.fp` (float).
 - The Arm Cortex-M85 can come with an optional double-precision FPU that also supports FP16, and with an optional M-Profile Vector Engine that can support either integer-only vectors, or integer/float vectors.
   - The target CPU is `cortex-m85`
-  - The appropriate FPU feature for the Cortex-M85 is either `fp-armv8d16`.
+  - The appropriate FPU feature for the Cortex-M85 is `fp-armv8d16`.
     - Floating Point for ARMv8
     - Only space for 16 `double`/`f64` values (or 32 `float`/`f32` values)
   - The appropriate feature for the MVE is either `mve` (integer) or `mve.fp` (float).
 
-The target CPU options may apply scheduling optimisations and will enable additional features, including the most advanced possible FPU support for that CPU. Currently it appears to be impossible to disable FPU support when a target CPU option has enabled it, so if you don't have an FPU you cannot use a target CPU setting.
+The target CPU options may apply scheduling optimisations and will enable additional features, including the most advanced possible FPU support for that CPU.
 
 | CPU                                 | Target CPU   | Target Feature                                                                 |
 | ----------------------------------- | ------------ | ------------------------------------------------------------------------------ |
-| Cortex-M33                          | None         | None                                                                           |
-| Cortex-M33 with DSP                 | None         | None                                                                           |
+| Cortex-M33                          | `cortex-m33` | `+soft-float`                                                                  |
+| Cortex-M33 with DSP                 | `cortex-m33` | `+soft-float`                                                                  |
 | Cortex-M33 with SP FPU              | `cortex-m33` | None - SP FPU is enabled by default. Unsure if LLVM can emit DSP instructions. |
 | Cortex-M33 with DSP and SP FPU      | `cortex-m33` | None - SP FPU is enabled by default. Unsure if LLVM can emit DSP instructions. |
-| Cortex-M55                          | None         | None                                                                           |
-| Cortex-M55 with Integer MVE         | None         | `+mve`                                                                         |
+| Cortex-M55                          | `cortex-m55` | `-mve,-mve.fp,+soft-float` - disable FP and MVE                                |
+| Cortex-M55 with Integer MVE         | `cortex-m55` | `-mve.fp,+soft-float` - disable FP                                             |
 | Cortex-M55 with FPU                 | `cortex-m55` | `-mve` - disable all MVE                                                       |
 | Cortex-M55 with FPU and Integer MVE | `cortex-m55` | `-mve.fp` - disable FP MVE                                                     |
 | Cortex-M55 with FPU and Float MVE   | `cortex-m55` | None - DP and FP MVE is enabled by default                                     |
-| Cortex-M85                          | None         | None                                                                           |
-| Cortex-M85 with Integer MVE         | None         | `+mve`                                                                         |
+| Cortex-M85                          | `cortex-m85` | `-mve,-mve.fp,+soft-float` - disable FP and MVE                                |
+| Cortex-M85 with Integer MVE         | `cortex-m85` | `-mve.fp,+soft-float` - disable FP                                             |
 | Cortex-M85 with FPU                 | `cortex-m85` | `-mve` - disable all MVE                                                       |
 | Cortex-M85 with FPU and Integer MVE | `cortex-m85` | `-mve.fp` - disable FP MVE                                                     |
 | Cortex-M85 with FPU and Float MVE   | `cortex-m85` | None - DP and FP MVE is enabled by default                                     |
