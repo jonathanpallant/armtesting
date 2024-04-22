@@ -1,133 +1,145 @@
 # ARMv7-M
 thumbv7m-none-eabi|
-thumbv7m-none-eabi|-C target-cpu=cortex-m3
+thumbv7m-none-eabi|-Ctarget-cpu=cortex-m3
 # ARMv7E-M Soft Float
 thumbv7em-none-eabi|
-thumbv7em-none-eabi|-C target-cpu=cortex-m4
-thumbv7em-none-eabi|-C target-cpu=cortex-m4 -C target-feature=-dsp
-thumbv7em-none-eabi|-C target-cpu=cortex-m4 -C target-feature=-soft-float
-thumbv7em-none-eabi|-C target-cpu=cortex-m4 -C target-feature=-vfp4
-thumbv7em-none-eabi|-C target-cpu=cortex-m4 -C target-feature=-vfp4d16
-thumbv7em-none-eabi|-C target-cpu=cortex-m4 -C target-feature=-vfp4d16sp
-thumbv7em-none-eabi|-C target-cpu=cortex-m4 -C target-feature=-vfp4sp
-thumbv7em-none-eabi|-C target-cpu=cortex-m4 -C target-feature=+dsp
-thumbv7em-none-eabi|-C target-cpu=cortex-m4 -C target-feature=+soft-float
-thumbv7em-none-eabi|-C target-cpu=cortex-m4 -C target-feature=+vfp4d16
-thumbv7em-none-eabi|-C target-cpu=cortex-m4 -C target-feature=+vfp4d16sp
-thumbv7em-none-eabi|-C target-cpu=cortex-m7
-thumbv7em-none-eabi|-C target-cpu=cortex-m7 -C target-feature=-dsp
-thumbv7em-none-eabi|-C target-cpu=cortex-m7 -C target-feature=-fp64
-thumbv7em-none-eabi|-C target-cpu=cortex-m7 -C target-feature=-soft-float
-thumbv7em-none-eabi|-C target-cpu=cortex-m7 -C target-feature=-vfp4
-thumbv7em-none-eabi|-C target-cpu=cortex-m7 -C target-feature=-vfp4d16
-thumbv7em-none-eabi|-C target-cpu=cortex-m7 -C target-feature=-vfp4d16sp
-thumbv7em-none-eabi|-C target-cpu=cortex-m7 -C target-feature=-vfp4sp
-thumbv7em-none-eabi|-C target-cpu=cortex-m7 -C target-feature=+dsp
-thumbv7em-none-eabi|-C target-cpu=cortex-m7 -C target-feature=+fp64
-thumbv7em-none-eabi|-C target-cpu=cortex-m7 -C target-feature=+soft-float
-thumbv7em-none-eabi|-C target-cpu=cortex-m7 -C target-feature=+vfp4
-thumbv7em-none-eabi|-C target-cpu=cortex-m7 -C target-feature=+vfp4d16
-thumbv7em-none-eabi|-C target-cpu=cortex-m7 -C target-feature=+vfp4d16sp
+thumbv7em-none-eabi|-Ctarget-cpu=cortex-m4
+thumbv7em-none-eabi|-Ctarget-cpu=cortex-m4 -Ctarget-feature=+soft-float
+# Extra flag testing
+# thumbv7em-none-eabi|-Ctarget-cpu=cortex-m4 -Ctarget-feature=-dsp
+# thumbv7em-none-eabi|-Ctarget-cpu=cortex-m4 -Ctarget-feature=-soft-float
+# thumbv7em-none-eabi|-Ctarget-cpu=cortex-m4 -Ctarget-feature=-vfp4
+# thumbv7em-none-eabi|-Ctarget-cpu=cortex-m4 -Ctarget-feature=-vfp4d16
+# thumbv7em-none-eabi|-Ctarget-cpu=cortex-m4 -Ctarget-feature=-vfp4d16sp
+# thumbv7em-none-eabi|-Ctarget-cpu=cortex-m4 -Ctarget-feature=-vfp4sp
+# thumbv7em-none-eabi|-Ctarget-cpu=cortex-m4 -Ctarget-feature=+dsp
+# thumbv7em-none-eabi|-Ctarget-cpu=cortex-m4 -Ctarget-feature=+vfp4d16
+# thumbv7em-none-eabi|-Ctarget-cpu=cortex-m4 -Ctarget-feature=+vfp4d16sp
+thumbv7em-none-eabi|-Ctarget-cpu=cortex-m7
+thumbv7em-none-eabi|-Ctarget-cpu=cortex-m7 -Ctarget-feature=+soft-float
+thumbv7em-none-eabi|-Ctarget-cpu=cortex-m7 -Ctarget-feature=-fp64
+# Extra flag testing
+# thumbv7em-none-eabi|-Ctarget-cpu=cortex-m7 -Ctarget-feature=-dsp
+# thumbv7em-none-eabi|-Ctarget-cpu=cortex-m7 -Ctarget-feature=-soft-float
+# thumbv7em-none-eabi|-Ctarget-cpu=cortex-m7 -Ctarget-feature=-vfp4
+# thumbv7em-none-eabi|-Ctarget-cpu=cortex-m7 -Ctarget-feature=-vfp4d16
+# thumbv7em-none-eabi|-Ctarget-cpu=cortex-m7 -Ctarget-feature=-vfp4d16sp
+# thumbv7em-none-eabi|-Ctarget-cpu=cortex-m7 -Ctarget-feature=-vfp4sp
+# thumbv7em-none-eabi|-Ctarget-cpu=cortex-m7 -Ctarget-feature=+dsp
+# thumbv7em-none-eabi|-Ctarget-cpu=cortex-m7 -Ctarget-feature=+fp64
+# thumbv7em-none-eabi|-Ctarget-cpu=cortex-m7 -Ctarget-feature=+vfp4
+# thumbv7em-none-eabi|-Ctarget-cpu=cortex-m7 -Ctarget-feature=+vfp4d16
+# thumbv7em-none-eabi|-Ctarget-cpu=cortex-m7 -Ctarget-feature=+vfp4d16sp
 # ARMv7E-M Hard Float
 thumbv7em-none-eabihf|
-thumbv7em-none-eabihf|-C target-cpu=cortex-m4
-thumbv7em-none-eabihf|-C target-cpu=cortex-m4 -C target-feature=-dsp
-thumbv7em-none-eabihf|-C target-cpu=cortex-m4 -C target-feature=+dsp
-thumbv7em-none-eabihf|-C target-cpu=cortex-m4 -C target-feature=+vfp4d16sp
-thumbv7em-none-eabihf|-C target-cpu=cortex-m7
-thumbv7em-none-eabihf|-C target-cpu=cortex-m7 -C target-feature=-dsp
-thumbv7em-none-eabihf|-C target-cpu=cortex-m7 -C target-feature=+dsp
-thumbv7em-none-eabihf|-C target-cpu=cortex-m7 -C target-feature=-fp64
-thumbv7em-none-eabihf|-C target-cpu=cortex-m7 -C target-feature=+fp64
-thumbv7em-none-eabihf|-C target-cpu=cortex-m7 -C target-feature=+vfp4d16
-thumbv7em-none-eabihf|-C target-cpu=cortex-m7 -C target-feature=+vfp4d16sp
+thumbv7em-none-eabihf|-Ctarget-cpu=cortex-m4
+thumbv7em-none-eabihf|-Ctarget-cpu=cortex-m7
+thumbv7em-none-eabihf|-Ctarget-cpu=cortex-m7 -Ctarget-feature=-fp64
+# Extra flag testing
+# thumbv7em-none-eabihf|-Ctarget-cpu=cortex-m4 -Ctarget-feature=-dsp
+# thumbv7em-none-eabihf|-Ctarget-cpu=cortex-m4 -Ctarget-feature=+dsp
+# thumbv7em-none-eabihf|-Ctarget-cpu=cortex-m4 -Ctarget-feature=+vfp4d16sp
+# thumbv7em-none-eabihf|-Ctarget-cpu=cortex-m7 -Ctarget-feature=-dsp
+# thumbv7em-none-eabihf|-Ctarget-cpu=cortex-m7 -Ctarget-feature=+dsp
+# thumbv7em-none-eabihf|-Ctarget-cpu=cortex-m7 -Ctarget-feature=+fp64
+# thumbv7em-none-eabihf|-Ctarget-cpu=cortex-m7 -Ctarget-feature=+vfp4d16
+# thumbv7em-none-eabihf|-Ctarget-cpu=cortex-m7 -Ctarget-feature=+vfp4d16sp
 # ARMv8-M Baseline
 thumbv8m.base-none-eabi|
-thumbv8m.base-none-eabi|-C target-cpu=cortex-m23
+thumbv8m.base-none-eabi|-Ctarget-cpu=cortex-m23
 # Hard Float ARMv8-M (FPU must be enabled)
 thumbv8m.main-none-eabihf|
-thumbv8m.main-none-eabihf|-C target-feature=-dsp
-thumbv8m.main-none-eabihf|-C target-feature=-fp64
-thumbv8m.main-none-eabihf|-C target-feature=-mve
-thumbv8m.main-none-eabihf|-C target-feature=-mve.fp
-thumbv8m.main-none-eabihf|-C target-feature=+dsp
-thumbv8m.main-none-eabihf|-C target-feature=+fp64
-thumbv8m.main-none-eabihf|-C target-feature=+mve
-thumbv8m.main-none-eabihf|-C target-feature=+mve.fp
-thumbv8m.main-none-eabihf|-C target-cpu=cortex-m33
-thumbv8m.main-none-eabihf|-C target-cpu=cortex-m33 -C target-feature=-dsp
-thumbv8m.main-none-eabihf|-C target-cpu=cortex-m33 -C target-feature=-fp64
-thumbv8m.main-none-eabihf|-C target-cpu=cortex-m33 -C target-feature=+dsp
-thumbv8m.main-none-eabihf|-C target-cpu=cortex-m33 -C target-feature=+fp64
-thumbv8m.main-none-eabihf|-C target-cpu=cortex-m55
-thumbv8m.main-none-eabihf|-C target-cpu=cortex-m55 -C target-feature=-dsp
-thumbv8m.main-none-eabihf|-C target-cpu=cortex-m55 -C target-feature=-fp64
-thumbv8m.main-none-eabihf|-C target-cpu=cortex-m55 -C target-feature=-mve
-thumbv8m.main-none-eabihf|-C target-cpu=cortex-m55 -C target-feature=-mve.fp
-thumbv8m.main-none-eabihf|-C target-cpu=cortex-m55 -C target-feature=+dsp
-thumbv8m.main-none-eabihf|-C target-cpu=cortex-m55 -C target-feature=+fp64
-thumbv8m.main-none-eabihf|-C target-cpu=cortex-m55 -C target-feature=+mve
-thumbv8m.main-none-eabihf|-C target-cpu=cortex-m55 -C target-feature=+mve.fp
-thumbv8m.main-none-eabihf|-C target-cpu=cortex-m85
-thumbv8m.main-none-eabihf|-C target-cpu=cortex-m85 -C target-feature=-dsp
-thumbv8m.main-none-eabihf|-C target-cpu=cortex-m85 -C target-feature=-fp64
-thumbv8m.main-none-eabihf|-C target-cpu=cortex-m85 -C target-feature=-mve
-thumbv8m.main-none-eabihf|-C target-cpu=cortex-m85 -C target-feature=-mve.fp
-thumbv8m.main-none-eabihf|-C target-cpu=cortex-m85 -C target-feature=+dsp
-thumbv8m.main-none-eabihf|-C target-cpu=cortex-m85 -C target-feature=+fp64
-thumbv8m.main-none-eabihf|-C target-cpu=cortex-m85 -C target-feature=+mve
-thumbv8m.main-none-eabihf|-C target-cpu=cortex-m85 -C target-feature=+mve.fp
+thumbv8m.main-none-eabihf|-Ctarget-cpu=cortex-m33
+thumbv8m.main-none-eabihf|-Ctarget-cpu=cortex-m55 -Ctarget-feature=-mve
+thumbv8m.main-none-eabihf|-Ctarget-cpu=cortex-m55 -Ctarget-feature=-mve.fp
+thumbv8m.main-none-eabihf|-Ctarget-cpu=cortex-m55
+thumbv8m.main-none-eabihf|-Ctarget-cpu=cortex-m85 -Ctarget-feature=-mve
+thumbv8m.main-none-eabihf|-Ctarget-cpu=cortex-m85 -Ctarget-feature=-mve.fp
+thumbv8m.main-none-eabihf|-Ctarget-cpu=cortex-m85
+# Extra flag testing
+# thumbv8m.main-none-eabihf|-Ctarget-feature=-dsp
+# thumbv8m.main-none-eabihf|-Ctarget-feature=-fp64
+# thumbv8m.main-none-eabihf|-Ctarget-feature=-mve
+# thumbv8m.main-none-eabihf|-Ctarget-feature=-mve.fp
+# thumbv8m.main-none-eabihf|-Ctarget-feature=+dsp
+# thumbv8m.main-none-eabihf|-Ctarget-feature=+fp64
+# thumbv8m.main-none-eabihf|-Ctarget-feature=+mve
+# thumbv8m.main-none-eabihf|-Ctarget-feature=+mve.fp
+# thumbv8m.main-none-eabihf|-Ctarget-cpu=cortex-m33 -Ctarget-feature=-dsp
+# thumbv8m.main-none-eabihf|-Ctarget-cpu=cortex-m33 -Ctarget-feature=-fp64
+# thumbv8m.main-none-eabihf|-Ctarget-cpu=cortex-m33 -Ctarget-feature=+dsp
+# thumbv8m.main-none-eabihf|-Ctarget-cpu=cortex-m33 -Ctarget-feature=+fp64
+# thumbv8m.main-none-eabihf|-Ctarget-cpu=cortex-m55 -Ctarget-feature=-dsp
+# thumbv8m.main-none-eabihf|-Ctarget-cpu=cortex-m55 -Ctarget-feature=-fp64
+# thumbv8m.main-none-eabihf|-Ctarget-cpu=cortex-m55 -Ctarget-feature=+dsp
+# thumbv8m.main-none-eabihf|-Ctarget-cpu=cortex-m55 -Ctarget-feature=+fp64
+# thumbv8m.main-none-eabihf|-Ctarget-cpu=cortex-m55 -Ctarget-feature=+mve
+# thumbv8m.main-none-eabihf|-Ctarget-cpu=cortex-m55 -Ctarget-feature=+mve.fp
+# thumbv8m.main-none-eabihf|-Ctarget-cpu=cortex-m85 -Ctarget-feature=-dsp
+# thumbv8m.main-none-eabihf|-Ctarget-cpu=cortex-m85 -Ctarget-feature=-fp64
+# thumbv8m.main-none-eabihf|-Ctarget-cpu=cortex-m85 -Ctarget-feature=+dsp
+# thumbv8m.main-none-eabihf|-Ctarget-cpu=cortex-m85 -Ctarget-feature=+fp64
+# thumbv8m.main-none-eabihf|-Ctarget-cpu=cortex-m85 -Ctarget-feature=+mve
+# thumbv8m.main-none-eabihf|-Ctarget-cpu=cortex-m85 -Ctarget-feature=+mve.fp
 # Soft Float ARMv8-M (FPU is optional)
 thumbv8m.main-none-eabi|
-thumbv8m.main-none-eabi|-C target-feature=-dsp
-thumbv8m.main-none-eabi|-C target-feature=-fp-armv8d16
-thumbv8m.main-none-eabi|-C target-feature=-fp-armv8d16sp
-thumbv8m.main-none-eabi|-C target-feature=-fp64
-thumbv8m.main-none-eabi|-C target-feature=-mve
-thumbv8m.main-none-eabi|-C target-feature=-soft-float
-thumbv8m.main-none-eabi|-C target-feature=+dsp
-thumbv8m.main-none-eabi|-C target-feature=+fp-armv8d16
-thumbv8m.main-none-eabi|-C target-feature=+fp-armv8d16sp
-thumbv8m.main-none-eabi|-C target-feature=+mve
-thumbv8m.main-none-eabi|-C target-feature=+soft-float
-thumbv8m.main-none-eabi|-C target-cpu=cortex-m33
-thumbv8m.main-none-eabi|-C target-cpu=cortex-m33 -C target-feature=-dsp
-thumbv8m.main-none-eabi|-C target-cpu=cortex-m33 -C target-feature=-fp-armv8d16
-thumbv8m.main-none-eabi|-C target-cpu=cortex-m33 -C target-feature=-fp-armv8d16sp
-thumbv8m.main-none-eabi|-C target-cpu=cortex-m33 -C target-feature=-fp64
-thumbv8m.main-none-eabi|-C target-cpu=cortex-m33 -C target-feature=-soft-float
-thumbv8m.main-none-eabi|-C target-cpu=cortex-m33 -C target-feature=+dsp
-thumbv8m.main-none-eabi|-C target-cpu=cortex-m33 -C target-feature=+fp-armv8d16
-thumbv8m.main-none-eabi|-C target-cpu=cortex-m33 -C target-feature=+fp-armv8d16sp
-thumbv8m.main-none-eabi|-C target-cpu=cortex-m33 -C target-feature=+fp64
-thumbv8m.main-none-eabi|-C target-cpu=cortex-m33 -C target-feature=+soft-float
-thumbv8m.main-none-eabi|-C target-cpu=cortex-m55
-thumbv8m.main-none-eabi|-C target-cpu=cortex-m55 -C target-feature=-dsp
-thumbv8m.main-none-eabi|-C target-cpu=cortex-m55 -C target-feature=-fp-armv8d16
-thumbv8m.main-none-eabi|-C target-cpu=cortex-m55 -C target-feature=-fp-armv8d16sp
-thumbv8m.main-none-eabi|-C target-cpu=cortex-m55 -C target-feature=-fp64
-thumbv8m.main-none-eabi|-C target-cpu=cortex-m55 -C target-feature=-mve
-thumbv8m.main-none-eabi|-C target-cpu=cortex-m55 -C target-feature=-mve.fp
-thumbv8m.main-none-eabi|-C target-cpu=cortex-m55 -C target-feature=-soft-float
-thumbv8m.main-none-eabi|-C target-cpu=cortex-m55 -C target-feature=+dsp
-thumbv8m.main-none-eabi|-C target-cpu=cortex-m55 -C target-feature=+fp-armv8d16
-thumbv8m.main-none-eabi|-C target-cpu=cortex-m55 -C target-feature=+fp-armv8d16sp
-thumbv8m.main-none-eabi|-C target-cpu=cortex-m55 -C target-feature=+fp64
-thumbv8m.main-none-eabi|-C target-cpu=cortex-m55 -C target-feature=+mve
-thumbv8m.main-none-eabi|-C target-cpu=cortex-m55 -C target-feature=+mve.fp
-thumbv8m.main-none-eabi|-C target-cpu=cortex-m55 -C target-feature=+soft-float,-mve.fp
-thumbv8m.main-none-eabi|-C target-cpu=cortex-m85
-thumbv8m.main-none-eabi|-C target-cpu=cortex-m85 -C target-feature=-dsp
-thumbv8m.main-none-eabi|-C target-cpu=cortex-m85 -C target-feature=-fp-armv8d16
-thumbv8m.main-none-eabi|-C target-cpu=cortex-m85 -C target-feature=-fp-armv8d16sp
-thumbv8m.main-none-eabi|-C target-cpu=cortex-m85 -C target-feature=-fp64
-thumbv8m.main-none-eabi|-C target-cpu=cortex-m85 -C target-feature=-mve
-thumbv8m.main-none-eabi|-C target-cpu=cortex-m85 -C target-feature=-mve.fp
-thumbv8m.main-none-eabi|-C target-cpu=cortex-m85 -C target-feature=-soft-float
-thumbv8m.main-none-eabi|-C target-cpu=cortex-m85 -C target-feature=+dsp
-thumbv8m.main-none-eabi|-C target-cpu=cortex-m85 -C target-feature=+fp-armv8d16
-thumbv8m.main-none-eabi|-C target-cpu=cortex-m85 -C target-feature=+fp-armv8d16sp
-thumbv8m.main-none-eabi|-C target-cpu=cortex-m85 -C target-feature=+fp64
-thumbv8m.main-none-eabi|-C target-cpu=cortex-m85 -C target-feature=+mve
-thumbv8m.main-none-eabi|-C target-cpu=cortex-m85 -C target-feature=+mve.fp
-thumbv8m.main-none-eabi|-C target-cpu=cortex-m85 -C target-feature=+soft-float,-mve.fp
+thumbv8m.main-none-eabi|-Ctarget-cpu=cortex-m33
+thumbv8m.main-none-eabi|-Ctarget-cpu=cortex-m33 -Ctarget-feature=+soft-float
+thumbv8m.main-none-eabi|-Ctarget-cpu=cortex-m55 -Ctarget-feature=-mve.fp,-mve,+soft-float
+thumbv8m.main-none-eabi|-Ctarget-cpu=cortex-m55 -Ctarget-feature=-mve.fp,+soft-float
+thumbv8m.main-none-eabi|-Ctarget-cpu=cortex-m55 -Ctarget-feature=-mve.fp
+thumbv8m.main-none-eabi|-Ctarget-cpu=cortex-m55 -Ctarget-feature=-mve
+thumbv8m.main-none-eabi|-Ctarget-cpu=cortex-m55
+thumbv8m.main-none-eabi|-Ctarget-cpu=cortex-m85 -Ctarget-feature=-mve.fp,-mve,+soft-float
+thumbv8m.main-none-eabi|-Ctarget-cpu=cortex-m85 -Ctarget-feature=-mve.fp,+soft-float
+thumbv8m.main-none-eabi|-Ctarget-cpu=cortex-m85 -Ctarget-feature=-mve.fp
+thumbv8m.main-none-eabi|-Ctarget-cpu=cortex-m85 -Ctarget-feature=-mve
+thumbv8m.main-none-eabi|-Ctarget-cpu=cortex-m85
+# Extra flag testing
+# thumbv8m.main-none-eabi|-Ctarget-feature=-dsp
+# thumbv8m.main-none-eabi|-Ctarget-feature=-fp-armv8d16
+# thumbv8m.main-none-eabi|-Ctarget-feature=-fp-armv8d16sp
+# thumbv8m.main-none-eabi|-Ctarget-feature=-fp64
+# thumbv8m.main-none-eabi|-Ctarget-feature=-mve
+# thumbv8m.main-none-eabi|-Ctarget-feature=-soft-float
+# thumbv8m.main-none-eabi|-Ctarget-feature=+dsp
+# thumbv8m.main-none-eabi|-Ctarget-feature=+fp-armv8d16
+# thumbv8m.main-none-eabi|-Ctarget-feature=+fp-armv8d16sp
+# thumbv8m.main-none-eabi|-Ctarget-feature=+mve
+# thumbv8m.main-none-eabi|-Ctarget-feature=+soft-float
+# thumbv8m.main-none-eabi|-Ctarget-cpu=cortex-m33 -Ctarget-feature=-dsp
+# thumbv8m.main-none-eabi|-Ctarget-cpu=cortex-m33 -Ctarget-feature=-fp-armv8d16
+# thumbv8m.main-none-eabi|-Ctarget-cpu=cortex-m33 -Ctarget-feature=-fp-armv8d16sp
+# thumbv8m.main-none-eabi|-Ctarget-cpu=cortex-m33 -Ctarget-feature=-fp64
+# thumbv8m.main-none-eabi|-Ctarget-cpu=cortex-m33 -Ctarget-feature=-soft-float
+# thumbv8m.main-none-eabi|-Ctarget-cpu=cortex-m33 -Ctarget-feature=+dsp
+# thumbv8m.main-none-eabi|-Ctarget-cpu=cortex-m33 -Ctarget-feature=+fp-armv8d16
+# thumbv8m.main-none-eabi|-Ctarget-cpu=cortex-m33 -Ctarget-feature=+fp-armv8d16sp
+# thumbv8m.main-none-eabi|-Ctarget-cpu=cortex-m33 -Ctarget-feature=+fp64
+# thumbv8m.main-none-eabi|-Ctarget-cpu=cortex-m55 -Ctarget-feature=-dsp
+# thumbv8m.main-none-eabi|-Ctarget-cpu=cortex-m55 -Ctarget-feature=-fp-armv8d16
+# thumbv8m.main-none-eabi|-Ctarget-cpu=cortex-m55 -Ctarget-feature=-fp-armv8d16sp
+# thumbv8m.main-none-eabi|-Ctarget-cpu=cortex-m55 -Ctarget-feature=-fp64
+# thumbv8m.main-none-eabi|-Ctarget-cpu=cortex-m55 -Ctarget-feature=-mve
+# thumbv8m.main-none-eabi|-Ctarget-cpu=cortex-m55 -Ctarget-feature=-mve.fp
+# thumbv8m.main-none-eabi|-Ctarget-cpu=cortex-m55 -Ctarget-feature=-soft-float
+# thumbv8m.main-none-eabi|-Ctarget-cpu=cortex-m55 -Ctarget-feature=+dsp
+# thumbv8m.main-none-eabi|-Ctarget-cpu=cortex-m55 -Ctarget-feature=+fp-armv8d16
+# thumbv8m.main-none-eabi|-Ctarget-cpu=cortex-m55 -Ctarget-feature=+fp-armv8d16sp
+# thumbv8m.main-none-eabi|-Ctarget-cpu=cortex-m55 -Ctarget-feature=+fp64
+# thumbv8m.main-none-eabi|-Ctarget-cpu=cortex-m55 -Ctarget-feature=+mve
+# thumbv8m.main-none-eabi|-Ctarget-cpu=cortex-m55 -Ctarget-feature=+mve.fp
+# thumbv8m.main-none-eabi|-Ctarget-cpu=cortex-m55 -Ctarget-feature=-mve.fp,+soft-float
+# thumbv8m.main-none-eabi|-Ctarget-cpu=cortex-m85 -Ctarget-feature=-dsp
+# thumbv8m.main-none-eabi|-Ctarget-cpu=cortex-m85 -Ctarget-feature=-fp-armv8d16
+# thumbv8m.main-none-eabi|-Ctarget-cpu=cortex-m85 -Ctarget-feature=-fp-armv8d16sp
+# thumbv8m.main-none-eabi|-Ctarget-cpu=cortex-m85 -Ctarget-feature=-fp64
+# thumbv8m.main-none-eabi|-Ctarget-cpu=cortex-m85 -Ctarget-feature=-mve
+# thumbv8m.main-none-eabi|-Ctarget-cpu=cortex-m85 -Ctarget-feature=-mve.fp
+# thumbv8m.main-none-eabi|-Ctarget-cpu=cortex-m85 -Ctarget-feature=-soft-float
+# thumbv8m.main-none-eabi|-Ctarget-cpu=cortex-m85 -Ctarget-feature=+dsp
+# thumbv8m.main-none-eabi|-Ctarget-cpu=cortex-m85 -Ctarget-feature=+fp-armv8d16
+# thumbv8m.main-none-eabi|-Ctarget-cpu=cortex-m85 -Ctarget-feature=+fp-armv8d16sp
+# thumbv8m.main-none-eabi|-Ctarget-cpu=cortex-m85 -Ctarget-feature=+fp64
+# thumbv8m.main-none-eabi|-Ctarget-cpu=cortex-m85 -Ctarget-feature=+mve
+# thumbv8m.main-none-eabi|-Ctarget-cpu=cortex-m85 -Ctarget-feature=+mve.fp
