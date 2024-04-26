@@ -9,7 +9,10 @@ use cortex_m_rt::entry;
 #[inline(never)]
 fn hidenext() -> i32 {
     static ATOMIC_NUMBER: core::sync::atomic::AtomicI32 = core::sync::atomic::AtomicI32::new(0);
-    ATOMIC_NUMBER.fetch_add(1, core::sync::atomic::Ordering::Relaxed)
+    let last = ATOMIC_NUMBER.load(core::sync::atomic::Ordering::Relaxed);
+    let new = last.wrapping_add(1);
+    ATOMIC_NUMBER.store(new, core::sync::atomic::Ordering::Relaxed);
+    last
 }
 
 #[inline(never)]
